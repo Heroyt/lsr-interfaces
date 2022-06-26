@@ -6,6 +6,7 @@
 namespace Lsr\Interfaces;
 
 use JsonSerializable;
+use Lsr\Core\Requests\Exceptions\RouteNotFoundException;
 use Lsr\Enums\RequestMethod;
 
 interface RequestInterface extends JsonSerializable
@@ -13,6 +14,10 @@ interface RequestInterface extends JsonSerializable
 
 	public function __construct(array|string $query);
 
+	/**
+	 * @return void
+	 * @throws RouteNotFoundException
+	 */
 	public function handle() : void;
 
 	public function getRoute() : ?RouteInterface;
