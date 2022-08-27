@@ -2,6 +2,9 @@
 
 namespace Lsr\Enums;
 
+/**
+ * @property string $value
+ */
 enum RequestMethod: string
 {
 

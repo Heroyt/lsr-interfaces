@@ -1,7 +1,7 @@
 {
     "name": "lsr/interfaces",
     "description": "Laser framework core - Interfaces.",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "repositories": [
         {
             "type": "composer",
@@ -9,7 +9,8 @@
         }
     ],
     "require-dev": {
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "^9.5",
+        "phpstan/phpstan": "^1.8"
     },
     "autoload": {
         "psr-4": {

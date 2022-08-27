@@ -12,9 +12,17 @@ use Lsr\Enums\RequestMethod;
 interface RequestInterface extends JsonSerializable
 {
 
+	/**
+	 * @param string[]|string $query
+	 */
 	public function __construct(array|string $query);
 
 	/**
+	 * Handle a request
+	 *
+	 * @post Call all Middleware
+	 * @post Call a handler function
+	 *
 	 * @return void
 	 * @throws RouteNotFoundException
 	 */
@@ -22,6 +30,9 @@ interface RequestInterface extends JsonSerializable
 
 	public function getRoute() : ?RouteInterface;
 
+	/**
+	 * @return string[]
+	 */
 	public function getPath() : array;
 
 	public function getMethod() : RequestMethod;

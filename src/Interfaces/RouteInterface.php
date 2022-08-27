@@ -12,17 +12,17 @@ interface RouteInterface
 	/**
 	 * Route constructor.
 	 *
-	 * @param RequestMethod  $type
-	 * @param callable|array $handler
+	 * @param RequestMethod                              $type
+	 * @param callable|array{0: class-string, 1: string} $handler
 	 */
 	public function __construct(RequestMethod $type, callable|array $handler);
 
 	/**
 	 * Create a new route
 	 *
-	 * @param RequestMethod  $type       [GET, POST, DELETE, PUT]
-	 * @param string         $pathString Path
-	 * @param callable|array $handler    Callback
+	 * @param RequestMethod                              $type       [GET, POST, DELETE, PUT]
+	 * @param string                                     $pathString Path
+	 * @param callable|array{0: class-string, 1: string} $handler    Callback
 	 *
 	 * @return RouteInterface
 	 */
@@ -38,7 +38,7 @@ interface RouteInterface
 	/**
 	 * Get route handler
 	 *
-	 * @return callable|array
+	 * @return callable|array{0: class-string, 1: string}
 	 */
 	public function getHandler() : callable|array;
 
