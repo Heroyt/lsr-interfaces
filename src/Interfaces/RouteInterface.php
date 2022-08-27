@@ -31,9 +31,9 @@ interface RouteInterface
 	/**
 	 * Handle a Request - calls any set Middleware and calls a route callback
 	 *
-	 * @param RequestInterface|null $request
+	 * @param RequestInterface $request
 	 */
-	public function handle(?RequestInterface $request = null) : void;
+	public function handle(RequestInterface $request) : void;
 
 	/**
 	 * Get route handler
