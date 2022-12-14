@@ -9,7 +9,7 @@ use JsonSerializable;
 use Lsr\Core\Requests\Exceptions\RouteNotFoundException;
 use Lsr\Enums\RequestMethod;
 
-interface RequestInterface extends JsonSerializable
+interface RequestInterface extends JsonSerializable, \Psr\Http\Message\RequestInterface
 {
 
 	/**

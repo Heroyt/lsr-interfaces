@@ -1,30 +1,32 @@
 {
-    "name": "lsr/interfaces",
-    "description": "Laser framework core - Interfaces.",
-    "version": "0.1.2",
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://packages.laserliga.cz"
-        }
-    ],
-    "require-dev": {
-        "phpunit/phpunit": "^9.5",
-        "phpstan/phpstan": "^1.8"
-    },
-    "autoload": {
-        "psr-4": {
-            "Lsr\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "Tomáš Vojík",
-            "email": "vojik@wboy.cz"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {
-        "php": ">=8.1"
-    }
+	"name": "lsr/interfaces",
+	"description": "Laser framework core - Interfaces.",
+	"version": "0.1.2",
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://packages.laserliga.cz"
+		}
+	],
+	"require-dev": {
+		"roave/security-advisories": "dev-latest",
+		"phpunit/phpunit": "^9.5",
+		"phpstan/phpstan": "^1.8"
+	},
+	"autoload": {
+		"psr-4": {
+			"Lsr\\": "src/"
+		}
+	},
+	"authors": [
+		{
+			"name": "Tomáš Vojík",
+			"email": "vojik@wboy.cz"
+		}
+	],
+	"minimum-stability": "dev",
+	"require": {
+		"php": ">=8.1",
+		"psr/http-message": "1.0.x-dev"
+	}
 }
