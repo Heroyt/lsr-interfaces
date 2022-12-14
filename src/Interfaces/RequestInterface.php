@@ -9,13 +9,8 @@ use JsonSerializable;
 use Lsr\Core\Requests\Exceptions\RouteNotFoundException;
 use Lsr\Enums\RequestMethod;
 
-interface RequestInterface extends JsonSerializable, \Psr\Http\Message\RequestInterface
+interface RequestInterface extends JsonSerializable
 {
-
-	/**
-	 * @param string[]|string $query
-	 */
-	public function __construct(array|string $query);
 
 	/**
 	 * Handle a request
