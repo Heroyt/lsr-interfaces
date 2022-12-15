@@ -38,7 +38,7 @@ interface RouteInterface
 	/**
 	 * Get route handler
 	 *
-	 * @return callable|array{0: class-string, 1: string}
+	 * @return callable|array{0: class-string|object, 1: string}
 	 */
 	public function getHandler() : callable|array;
 
@@ -69,5 +69,26 @@ interface RouteInterface
 	 * @return RequestMethod
 	 */
 	public function getMethod() : RequestMethod;
+
+	/**
+	 * Compare two route paths.
+	 *
+	 * Ignores different parameter names, but checks if both paths contain parameter at the same place.
+	 *
+	 * @param string[] $path1
+	 * @param string[] $path2
+	 *
+	 * @return bool True if the paths match.
+	 */
+	public static function compareRoutePaths(array $path1, array $path2) : bool;
+
+	/**
+	 * Compare another route with this route
+	 *
+	 * @param RouteInterface $route
+	 *
+	 * @return bool
+	 */
+	public function compare(RouteInterface $route) : bool;
 
 }
