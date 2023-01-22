@@ -4,6 +4,8 @@ namespace Lsr\Enums;
 
 /**
  * @property string $value
+ * @method static RequestMethod from(string $value)
+ * @method static RequestMethod|null tryFrom(string $value)
  */
 enum RequestMethod: string
 {

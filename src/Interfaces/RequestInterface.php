@@ -34,4 +34,34 @@ interface RequestInterface extends JsonSerializable
 
 	public function getParam(string $name, mixed $default = null) : mixed;
 
+	public function setPreviousRequest(RequestInterface $request) : static;
+
+	public function addError(string $error) : static;
+
+	public function addPassError(string $error) : static;
+
+	/**
+	 * @return string[]
+	 */
+	public function getErrors() : array;
+
+	/**
+	 * @return string[]
+	 */
+	public function getPassErrors() : array;
+
+	public function addNotice(string $notice) : static;
+
+	public function addPassNotice(string $notice) : static;
+
+	/**
+	 * @return string[]
+	 */
+	public function getNotices() : array;
+
+	/**
+	 * @return string[]
+	 */
+	public function getPassNotices() : array;
+
 }
