@@ -27,17 +27,22 @@ interface SessionInterface
 	/**
 	 * Read a session value
 	 *
-	 * @param string $key
+	 * @param string     $key
+	 * @param mixed|null $default
+	 *
+	 * @pre init() method was called
 	 *
 	 * @return mixed
 	 */
-	public function get(string $key) : mixed;
+	public function get(string $key, mixed $default = null) : mixed;
 
 	/**
 	 * Set a new session value.
 	 *
 	 * @param string $key
 	 * @param mixed  $value
+	 *
+	 * @pre init() method was called
 	 *
 	 * @return void
 	 */
@@ -47,6 +52,9 @@ interface SessionInterface
 	 * Delete a session value by its key.
 	 *
 	 * @param string $key
+	 *
+	 * @pre  init() method was called
+	 * @post value is removed from session
 	 *
 	 * @return void
 	 */
@@ -62,17 +70,24 @@ interface SessionInterface
 	/**
 	 * Read a flash value. It will be deleted automatically.
 	 *
-	 * @param string $key
+	 * @param string     $key
+	 * @param mixed|null $default
+	 *
+	 * @pre  init() method was called
+	 * @post flash value is deleted
 	 *
 	 * @return mixed
 	 */
-	public function getFlash(string $key) : mixed;
+	public function getFlash(string $key, mixed $default = null) : mixed;
 
 	/**
 	 * Set a temporary value into session storage. Flash value will be lost after reading.
 	 *
 	 * @param string $key
 	 * @param mixed  $value
+	 *
+	 * @pre  init() method was called
+	 * @post flash value is stored in session
 	 *
 	 * @return void
 	 */
