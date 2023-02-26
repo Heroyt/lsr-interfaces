@@ -25,6 +25,29 @@ interface SessionInterface
 	public function init() : void;
 
 	/**
+	 * @return int PHP_SESSION_DISABLED|PHP_SESSION_NONE|PHP_SESSION_ACTIVE
+	 */
+	public function getStatus() : int;
+
+	/**
+	 * Get session Cookie parameters
+	 *
+	 * @return array{lifetime:int,path:string,domain:string,secure:bool,httponly:bool}
+	 */
+	public function getParams() : array;
+
+	/**
+	 * @param int         $lifetime
+	 * @param string|null $path
+	 * @param string|null $domain
+	 * @param bool|null   $secure
+	 * @param bool|null   $httponly
+	 *
+	 * @return bool
+	 */
+	public function setParams(int $lifetime, ?string $path = null, ?string $domain = null, ?bool $secure = null, ?bool $httponly = null) : bool;
+
+	/**
 	 * Read a session value
 	 *
 	 * @param string     $key
