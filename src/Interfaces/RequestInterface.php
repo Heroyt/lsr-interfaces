@@ -32,7 +32,13 @@ interface RequestInterface extends JsonSerializable
 
 	public function getMethod() : RequestMethod;
 
-	public function getParam(string $name, mixed $default = null) : mixed;
+	/**
+	 * @param string     $name
+	 * @param mixed|null $default
+	 *
+	 * @return string|numeric-string
+	 */
+	public function getParam(string $name, mixed $default = null): string;
 
 	public function setPreviousRequest(RequestInterface $request) : static;
 
