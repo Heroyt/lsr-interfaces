@@ -8,8 +8,9 @@ namespace Lsr\Interfaces;
 use JsonSerializable;
 use Lsr\Core\Requests\Exceptions\RouteNotFoundException;
 use Lsr\Enums\RequestMethod;
+use Psr\Http\Message\ServerRequestInterface;
 
-interface RequestInterface extends JsonSerializable
+interface RequestInterface extends JsonSerializable, ServerRequestInterface
 {
 
 	/**
