@@ -1,7 +1,7 @@
 {
 	"name": "lsr/interfaces",
 	"description": "Laser framework core - Interfaces.",
-  "version": "0.2.10",
+  "version": "0.2.11",
 	"repositories": [
 		{
 			"type": "composer",
@@ -26,7 +26,8 @@
 	],
 	"minimum-stability": "stable",
 	"require": {
-    "php": ">=8.2"
+    "php": ">=8.2",
+    "psr/http-server-handler": "^1.0"
 	},
 	"extra": {
 		"branch-alias": {

@@ -5,10 +5,10 @@
 
 namespace Lsr\Interfaces;
 
-use Lsr\Core\Requests\Response;
 use Lsr\Enums\RequestMethod;
+use Psr\Http\Server\RequestHandlerInterface;
 
-interface RouteInterface
+interface RouteInterface extends RequestHandlerInterface
 {
 	/**
 	 * Route constructor.
@@ -28,13 +28,6 @@ interface RouteInterface
 	 * @return RouteInterface
 	 */
 	public static function create(RequestMethod $type, string $pathString, callable|array $handler) : RouteInterface;
-
-	/**
-	 * Handle a Request - calls any set Middleware and calls a route callback
-	 *
-	 * @param RequestInterface $request
-	 */
-	public function handle(RequestInterface $request, Response $response): Response;
 
 	/**
 	 * Get route handler
