@@ -5,6 +5,7 @@
 
 namespace Lsr\Interfaces;
 
+use Lsr\Core\Requests\Response;
 use Lsr\Enums\RequestMethod;
 
 interface RouteInterface
@@ -33,7 +34,7 @@ interface RouteInterface
 	 *
 	 * @param RequestInterface $request
 	 */
-	public function handle(RequestInterface $request) : void;
+	public function handle(RequestInterface $request, Response $response): Response;
 
 	/**
 	 * Get route handler
