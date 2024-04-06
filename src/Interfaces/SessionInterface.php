@@ -25,6 +25,20 @@ interface SessionInterface
 	public function init() : void;
 
 	/**
+	 * Close the current session
+	 *
+	 * @return void
+	 */
+	public function close(): void;
+
+	/**
+	 * Checks if session is currently active
+	 *
+	 * @return bool
+	 */
+	public function isInitialized(): bool;
+
+	/**
 	 * @return int PHP_SESSION_DISABLED|PHP_SESSION_NONE|PHP_SESSION_ACTIVE
 	 */
 	public function getStatus() : int;
