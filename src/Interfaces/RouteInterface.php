@@ -6,17 +6,9 @@
 namespace Lsr\Interfaces;
 
 use Lsr\Enums\RequestMethod;
-use Psr\Http\Server\RequestHandlerInterface;
 
-interface RouteInterface extends RequestHandlerInterface
+interface RouteInterface
 {
-	/**
-	 * Route constructor.
-	 *
-	 * @param RequestMethod                              $type
-	 * @param callable|array{0: class-string, 1: string} $handler
-	 */
-	public function __construct(RequestMethod $type, callable|array $handler);
 
 	/**
 	 * Create a new route
@@ -27,42 +19,7 @@ interface RouteInterface extends RequestHandlerInterface
 	 *
 	 * @return RouteInterface
 	 */
-	public static function create(RequestMethod $type, string $pathString, callable|array $handler) : RouteInterface;
-
-	/**
-	 * Get route handler
-	 *
-	 * @return callable|array{0: class-string|object, 1: string}
-	 */
-	public function getHandler() : callable|array;
-
-	/**
-	 * Get a string representation for this route
-	 *
-	 * @return string
-	 */
-	public function getReadable() : string;
-
-	/**
-	 * Get split route path
-	 *
-	 * @return string[]
-	 */
-	public function getPath() : array;
-
-	/**
-	 * Get route's name
-	 *
-	 * @return string Can be empty if no name is set
-	 */
-	public function getName() : string;
-
-	/**
-	 * Get route's request method
-	 *
-	 * @return RequestMethod
-	 */
-	public function getMethod() : RequestMethod;
+	public static function create(RequestMethod $type, string $pathString, callable|array $handler): RouteInterface;
 
 	/**
 	 * Compare two route paths.
@@ -74,7 +31,42 @@ interface RouteInterface extends RequestHandlerInterface
 	 *
 	 * @return bool True if the paths match.
 	 */
-	public static function compareRoutePaths(array $path1, array $path2) : bool;
+	public static function compareRoutePaths(array $path1, array $path2): bool;
+
+	/**
+	 * Get route handler
+	 *
+	 * @return callable|array{0: class-string|object, 1: string}
+	 */
+	public function getHandler(): callable|array;
+
+	/**
+	 * Get a string representation for this route
+	 *
+	 * @return string
+	 */
+	public function getReadable(): string;
+
+	/**
+	 * Get split route path
+	 *
+	 * @return string[]
+	 */
+	public function getPath(): array;
+
+	/**
+	 * Get route's name
+	 *
+	 * @return string Can be empty if no name is set
+	 */
+	public function getName(): string;
+
+	/**
+	 * Get route's request method
+	 *
+	 * @return RequestMethod
+	 */
+	public function getMethod(): RequestMethod;
 
 	/**
 	 * Compare another route with this route
@@ -83,6 +75,6 @@ interface RouteInterface extends RequestHandlerInterface
 	 *
 	 * @return bool
 	 */
-	public function compare(RouteInterface $route) : bool;
+	public function compare(RouteInterface $route): bool;
 
 }

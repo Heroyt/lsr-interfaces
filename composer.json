@@ -1,7 +1,7 @@
 {
 	"name": "lsr/interfaces",
 	"description": "Laser framework core - Interfaces.",
-  "version": "0.2.13",
+  "version": "0.3.0",
 	"repositories": [
 		{
 			"type": "composer",
