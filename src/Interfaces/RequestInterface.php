@@ -14,19 +14,6 @@ interface RequestInterface extends JsonSerializable, ServerRequestInterface
 {
 
 	/**
-	 * Handle a request
-	 *
-	 * @post Call all Middleware
-	 * @post Call a handler function
-	 *
-	 * @return void
-	 * @throws RouteNotFoundException
-	 */
-	public function handle(): void;
-
-	public function getRoute(): ?RouteInterface;
-
-	/**
 	 * @return string[]
 	 */
 	public function getPath(): array;
@@ -34,19 +21,20 @@ interface RequestInterface extends JsonSerializable, ServerRequestInterface
 	public function getType(): RequestMethod;
 
 	/**
-	 * @param array<string,string|numeric|null> $params
+	 * @param array<string,string> $params
 	 *
 	 * @return $this
 	 */
 	public function setParams(array $params): static;
 
 	/**
+	 * @template T of mixed|null
 	 * @param string     $name
-	 * @param mixed|null $default
+	 * @param T $default
 	 *
-	 * @return string|numeric|null
+	 * @return string|T
 	 */
-	public function getParam(string $name, mixed $default = null): string|int|float|null;
+	public function getParam(string $name, mixed $default = null): mixed;
 
 	public function setPreviousRequest(RequestInterface $request): static;
 
@@ -64,17 +52,27 @@ interface RequestInterface extends JsonSerializable, ServerRequestInterface
 	 */
 	public function getPassErrors(): array;
 
-	public function addNotice(string $notice): static;
-
-	public function addPassNotice(string $notice): static;
+	/**
+	 * @param string|array{title?:string,content:string,type?:string} $notice
+	 *
+	 * @return $this
+	 */
+	public function addNotice(string|array $notice): static;
 
 	/**
-	 * @return string[]
+	 * @param string|array{title?:string,content:string,type?:string} $notice
+	 *
+	 * @return $this
+	 */
+	public function addPassNotice(string|array $notice): static;
+
+	/**
+	 * @return array<string|array{title?:string,content:string,type?:string}>
 	 */
 	public function getNotices(): array;
 
 	/**
-	 * @return string[]
+	 * @return array<string|array{title?:string,content:string,type?:string}>
 	 */
 	public function getPassNotices(): array;
 
