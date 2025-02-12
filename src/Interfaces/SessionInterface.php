@@ -130,4 +130,11 @@ interface SessionInterface
 	 */
 	public function flash(string $key, mixed $value) : void;
 
+	/**
+	 * Get contents of the Set-Cookie header for setting up session
+	 *
+	 * @return non-empty-string
+	 */
+	public function getCookieHeader(): string;
+
 }
