@@ -32,4 +32,9 @@ interface CookieJarInterface
 	 */
 	public function delete(string $name): void;
 
+	/**
+	 * @return non-empty-string[]
+	 */
+	public function getHeaders(): array;
+
 }
