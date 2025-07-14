@@ -3,27 +3,27 @@ declare(strict_types=1);
 
 namespace Lsr\Exceptions;
 
-use Lsr\Core\Requests\Request;
+use Psr\Http\Message\UriInterface;
 
-/**
- * @phpstan-type RedirectCode int<300,308>
- *
- * @method RedirectCode getCode()
- */
-class RedirectException extends \RuntimeException
+trait RedirectException
 {
 
 	/**
-	 * @param non-empty-string|array<int|string, string> $url
-	 * @param RedirectCode                               $code
-	 * @param Request|null $request
+	 * Create a new DispatchBreakException with a redirect response
+	 *
+	 * @param int<300,308> $code
 	 */
-	public function __construct(
-		public readonly string|array $url = [],
-		int                          $code = 302,
-		public readonly ?Request     $request = null,
-	) {
-		parent::__construct('Redirect to: ' . json_encode($url), $code);
+	public static function creteRedirect(
+		string|UriInterface $url = '/',
+		int                 $code = 302,
+	): self {
+		return self::create(
+			null,
+			$code,
+			[
+				'Location' => (string)$url,
+			]
+		);
 	}
 
 }
