@@ -2,6 +2,8 @@
 
 namespace Lsr\Interfaces;
 
+use Lsr\Dto\Notice;
+
 /**
  * Interface for working with session data
  *
@@ -129,6 +131,51 @@ interface SessionInterface
 	 * @return void
 	 */
 	public function flash(string $key, mixed $value) : void;
+
+	/**
+	 * Set a temporary error message into session storage. Flash value will be lost after reading.
+	 *
+	 * @pre init() method was called
+	 */
+	public function flashError(string $message): void;
+
+	/**
+	 * Set a temporary error message into session storage. Flash value will be lost after reading.
+	 *
+	 * @pre init() method was called
+	 */
+	public function flashSuccess(string $message): void;
+
+	/**
+	 * Set a temporary error message into session storage. Flash value will be lost after reading.
+	 *
+	 * @pre init() method was called
+	 */
+	public function flashInfo(string $message): void;
+
+	/**
+	 * Set a temporary error message into session storage. Flash value will be lost after reading.
+	 *
+	 * @pre init() method was called
+	 */
+	public function flashWarning(string $message): void;
+
+	/**
+	 * Set a temporary error message into session storage. Flash value will be lost after reading.
+	 *
+	 * @pre init() method was called
+	 */
+	public function flashNotice(Notice $notice): void;
+
+	/**
+	 * Get all messages stored in flash session.
+	 *
+	 * @pre  init() method was called
+	 * @post flash messages are deleted
+	 *
+	 * @return Notice[]
+	 */
+	public function getFlashMessages(): array;
 
 	/**
 	 * Get contents of the Set-Cookie header for setting up session
