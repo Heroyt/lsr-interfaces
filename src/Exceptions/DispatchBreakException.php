@@ -6,12 +6,10 @@ namespace Lsr\Exceptions;
 use Lsr\Basic\NyholmResponseFactory;
 use Lsr\Interfaces\ResponseFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\UriInterface;
 
 class DispatchBreakException extends \RuntimeException
 {
-
-	use RedirectException;
-	use BadRequestException;
 
 	protected static ResponseFactoryInterface $responseFactory;
 
@@ -59,6 +57,39 @@ class DispatchBreakException extends \RuntimeException
 		}
 
 		return new static($response);
+	}
+
+	/**
+	 * Create a new DispatchBreakException with a redirect response
+	 *
+	 * @param int<300,308> $code
+	 */
+	public static function creteRedirect(
+		string|UriInterface $url = '/',
+		int                 $code = 302,
+	): self {
+		return self::create(
+			null,
+			$code,
+			[
+				'Location' => (string)$url,
+			]
+		);
+	}
+
+	/**
+	 * @param string|array<string,mixed>|object|null $message
+	 */
+	public static function createBadRequest(
+		string|array|object|null $message = 'Bad request',
+		int                      $code = 400,
+		array                    $headers = [],
+	): self {
+		return self::create(
+			$message,
+			$code,
+			$headers,
+		);
 	}
 
 	public static function getResponseFactory(): ResponseFactoryInterface {
