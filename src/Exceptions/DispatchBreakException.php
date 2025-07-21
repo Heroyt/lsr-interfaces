@@ -64,7 +64,7 @@ class DispatchBreakException extends \RuntimeException
 	 *
 	 * @param int<300,308> $code
 	 */
-	public static function creteRedirect(
+	public static function createRedirect(
 		string|UriInterface $url = '/',
 		int                 $code = 302,
 	): self {
