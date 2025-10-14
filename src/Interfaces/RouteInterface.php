@@ -5,6 +5,7 @@
 
 namespace Lsr\Interfaces;
 
+use Lsr\Core\Routing\Interfaces\RouteParamValidatorInterface;
 use Lsr\Enums\RequestMethod;
 
 interface RouteInterface
@@ -76,5 +77,15 @@ interface RouteInterface
 	 * @return bool
 	 */
 	public function compare(RouteInterface $route): bool;
+
+	/**
+	 * Setup a route parameter validator.
+	 *
+	 * @param non-empty-string             $name
+	 * @param RouteParamValidatorInterface ...$validators
+	 *
+	 * @return $this
+	 */
+	public function param(string $name, RouteParamValidatorInterface ...$validators): static;
 
 }
