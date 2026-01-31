@@ -10,8 +10,9 @@
   ],
   "require-dev": {
     "roave/security-advisories": "dev-latest",
-    "phpunit/phpunit": "^11",
-    "phpstan/phpstan": "^2"
+    "phpunit/phpunit": "^12",
+    "phpstan/phpstan": "^2",
+    "squizlabs/php_codesniffer": "^4"
   },
   "autoload": {
     "psr-4": {
