@@ -6,7 +6,7 @@ namespace Lsr\Interfaces;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
 
-interface ResponseFactoryInterface
+interface ResponseFactoryInterface extends \Psr\Http\Message\ResponseFactoryInterface
 {
 
 	/**
@@ -14,7 +14,7 @@ interface ResponseFactoryInterface
 	 *
 	 * @param array<string, string|string[]> $headers
 	 */
-	public function createResponse(
+    public function createFullResponse(
 		int                         $code = 200,
 		array                       $headers = [],
 		null|StreamInterface|string $body = null,

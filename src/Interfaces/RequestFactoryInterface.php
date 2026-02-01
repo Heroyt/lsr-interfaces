@@ -3,9 +3,10 @@ declare(strict_types=1);
 
 namespace Lsr\Interfaces;
 
+use Psr\Http\Message\ServerRequestFactoryInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-interface RequestFactoryInterface
+interface RequestFactoryInterface extends ServerRequestFactoryInterface, \Psr\Http\Message\RequestFactoryInterface
 {
 
 	/**
