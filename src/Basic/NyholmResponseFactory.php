@@ -23,7 +23,7 @@ final class NyholmResponseFactory implements ResponseFactoryInterface
 		string  $version = '1.1',
 		?string $reason = null
 	): ResponseInterface {
-		return $this->createResponse(
+        return $this->createFullResponse(
 			$code,
 			$headers,
 			$this->createStream(json_encode($data, JSON_THROW_ON_ERROR)),
@@ -32,7 +32,7 @@ final class NyholmResponseFactory implements ResponseFactoryInterface
 		)->withHeader('Content-Type', 'application/json');
 	}
 
-	public function createResponse(
+    public function createFullResponse(
 		int                         $code = 200,
 		array                       $headers = [],
 		null|StreamInterface|string $body = null,
@@ -48,7 +48,14 @@ final class NyholmResponseFactory implements ResponseFactoryInterface
 		);
 	}
 
-	public function createStream(string $content): StreamInterface {
+
+    public function createResponse(int $code = 200, string $reasonPhrase = ''): ResponseInterface
+    {
+        return new Response($code, [], null, '1.1', $reasonPhrase);
+    }
+
+    public function createStream(string $content): StreamInterface
+    {
 		return new Psr17Factory()->createStream($content);
 	}
 
