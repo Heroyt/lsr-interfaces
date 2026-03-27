@@ -33,7 +33,7 @@ class DispatchBreakException extends \RuntimeException
 	): static {
 		if (is_string($data)) {
 			$response = self::getResponseFactory()
-			                ->createResponse(
+                ->createFullResponse(
 				                $code,
 				                $headers,
 				                self::getResponseFactory()->createStream($data)
@@ -41,7 +41,7 @@ class DispatchBreakException extends \RuntimeException
 		}
 		else if (is_resource($data)) {
 			$response = self::getResponseFactory()
-			                ->createResponse(
+                ->createFullResponse(
 				                $code,
 				                $headers,
 				                self::getResponseFactory()->createResourceStream($data)
