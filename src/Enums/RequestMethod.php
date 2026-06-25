@@ -14,6 +14,7 @@ enum RequestMethod: string
 	case POST = 'POST';
 	case PUT = 'PUT';
 	case PATCH = 'PATCH';
+	case OPTIONS = 'OPTIONS';
 	case UPDATE = 'UPDATE';
 	case DELETE = 'DELETE';
 	case HEAD  = 'HEAD';
